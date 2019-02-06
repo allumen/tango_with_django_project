@@ -1,0 +1,11 @@
+{% extends 'rango/base.html' %}
+{% load staticfiles %}
+
+{% block title_block %}
+    Restricted page
+{% endblock %}
+
+{% block body_block %}
+<h1>Restricted page</h1>
+<p>This page can only be seen by logged in users.<br />Your username is: {{ user.username }}</p>
+{% endblock %}
