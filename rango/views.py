@@ -14,7 +14,7 @@ from datetime import datetime
 def index(request):
     category_list = Category.objects.order_by('-likes')[:5]
     pages = Page.objects.order_by('-views')[:5]
-    context_dict = {'categories': category_list, 'top_pages': pages, 'boldmessage': 'Crunchy, creamy, cookie, candy, cupcake!'}
+    context_dict = {'categories': category_list, 'pages': pages, 'boldmessage': 'Crunchy, creamy, cookie, candy, cupcake!'}
     
     visitor_cookie_handler(request)
     context_dict['visits'] = request.session['visits']
@@ -127,7 +127,6 @@ def show_category(request, category_name_slug):
     return render(request, 'rango/category.html', context=context_dict)
 
 
-@login_required   
 def add_category(request):
 	form = CategoryForm
 	
