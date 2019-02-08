@@ -10,10 +10,10 @@
     <div>
         {% if user.is_authenticated %}
             howdy {{ user.username }}!
-            <p>visits: {{ visits }}</p> 
         {% else %}
             hey there partner!
         {% endif %}
+        <p>visits: {{ visits }}</p> 
         <br />
         <b>{{ boldmessage }}</b>
     </div>
@@ -24,7 +24,7 @@
             {% for category in categories %}
             <!-- Following line changed to add an HTML hyperlink -->
             <li>
-                <a href="{% url 'rango:show_category' category.slug %}">{{ category.name }}</a>
+                <a href="{% url 'show_category' category.slug %}">{{ category.name }}</a>
             </li>
             {% endfor %}
         </ul>
